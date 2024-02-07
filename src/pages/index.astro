@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import GithubIcon from "../icons/Github.astro";
+import MailIcon from "../icons/Mail.astro";
+import BriefcaseIcon from "../icons/Briefcase.astro";
+import SocialMediaList from "../components/SocialMediaList.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+---
+
+<Layout
+  title="Portfolio of Juanfercito - Web Development and Programming"
+  description="Hire Juanfercito for creating your web and mobile applications"
+>
+  <main class="px-4">
+    <SectionContainer class="py-24 pb-24">
+      <h1
+        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex
+        flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hey, I'm Juanfercito
+        <a
+          href="https://www.linkedin.com/in/jonathan-lozano-moreira-11b6b3263/"
+          target="-blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Available for Hire</Badge>
+        </a>
+      </h1>
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[500px]">
+        <span> +1 años de experiencia.</span>
+        <span class="text-yellow-200/90"> Desarrollador Web.</span>
+      </h2>
+      <span class="text-red-100/90"> De manta, Manabí, Ecuador.</span>
+      <span class="opacity-80">
+        Creación de aplicaciones Eficientes y atractivas
+      </span>
+
+      <nav class="flex gap-x-4 mt-8 flex-wrap">
+        <SocialMediaList
+          href="https://www.linkedin.com/in/jonathan-lozano-moreira-11b6b3263"
+        >
+          <LinkedinIcon class="size-4 md:size-6" />
+          LinkedIn
+        </SocialMediaList>
+        <SocialMediaList href="https://github.com/juanfercito?tab=repositories">
+          <GithubIcon class="size-4 md:size-6" />
+          GitHub
+        </SocialMediaList>
+        <SocialMediaList href="mailto:jalmlozano@hotmail.com">
+          <MailIcon class="size-4 md:size-6" />
+          jalmlozano@hotmail.com
+        </SocialMediaList>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
+        <BriefcaseIcon class="size-6" />
+        Work Experience
+      </h2>
+      <Experience />
+    </SectionContainer>
+  </main>
+</Layout>
