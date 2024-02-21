@@ -19,11 +19,14 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script src="https://unpkg.com/@pyscript/runtime/umd/pyscript.min.js"
+    ></script>
+
     <title>{title}</title>
   </head>
   <body class="px-4">
     <div
-      class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+      class="fixed inset-0 top-0 z-[-2] h-screen w-screen bg-[#011C70] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"
     >
     </div>
     <Header />
@@ -64,5 +67,44 @@ const { description, title } = Astro.props;
     animation: blur linear both 0.5s;
     animation-timeline: scroll();
     animation-range: 0 500px;
+  }
+
+  @keyframes blur {
+    to {
+      backdrop-filter: blur(20px);
+      border-width: 1px;
+      border-color: rgba(0, 0, 0);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: rgb(229, 229, 229);
+      border-radius: 9999px;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    @keyframes blur {
+      from {
+        border: 0px;
+      }
+      to {
+        box-shadow:
+          0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+          0px 0px 0 1px rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        border-width: 1px;
+        border-color: rgba(0, 0, 0);
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 9999px;
+      }
+    }
   }
 </style>

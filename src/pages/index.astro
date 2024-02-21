@@ -1,14 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
 import LinkedinIcon from "../icons/Linkedin.astro";
 import GithubIcon from "../icons/Github.astro";
 import MailIcon from "../icons/Mail.astro";
 import BriefcaseIcon from "../icons/Briefcase.astro";
+import CodeIcon from "../icons/Code.astro";
+import EmojiSmileIcon from "../icons/EmojiSmile.astro";
+import LevelSignalIcon from "../icons/LevelSignal.astro";
 import SocialMediaList from "../components/SocialMediaList.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import AboutMe from "../components/AboutMe.astro";
+import SkillsCard from "../components/SkillsCard.astro";
 ---
 
 <Layout
@@ -16,7 +21,7 @@ import Experience from "../components/Experience.astro";
   description="Hire Juanfercito for creating your web and mobile applications"
 >
   <main class="px-4">
-    <SectionContainer class="py-24 pb-24">
+    <SectionContainer class="py-32 pb-32">
       <h1
         class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex
         flex-row gap-x-4 pb-6 lg:pb-10"
@@ -28,19 +33,19 @@ import Experience from "../components/Experience.astro";
           rel="noopener"
           class="flex justify-center items-center"
         >
-          <Badge>Available for Hire</Badge>
+          <Badge>Open to Work</Badge>
         </a>
       </h1>
       <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[500px]">
-        <span> +1 años de experiencia.</span>
-        <span class="text-yellow-200/90"> Desarrollador Web.</span>
+        <span> +1 years of experience.</span>
+        <span class="text-yellow-200/90"> Web Developer.</span>
       </h2>
-      <span class="text-red-100/90"> De manta, Manabí, Ecuador.</span>
+      <span class="text-red-100/90"> From manta, Manabí, Ecuador.</span>
       <span class="opacity-80">
-        Creación de aplicaciones Eficientes y atractivas
+        Creating Eficients and Likeable applications
       </span>
 
-      <nav class="flex gap-x-4 mt-8 flex-wrap">
+      <nav class="flex gap-4 mt-8 flex-wrap">
         <SocialMediaList
           href="https://www.linkedin.com/in/jonathan-lozano-moreira-11b6b3263"
         >
@@ -57,12 +62,37 @@ import Experience from "../components/Experience.astro";
         </SocialMediaList>
       </nav>
     </SectionContainer>
+
+    <SectionContainer id="about">
+      <h2 class="text-2xl font-semibold mb-12 flex gap-x-4 items-center">
+        <EmojiSmileIcon class="size-4 md:size-6" />
+        About Me
+      </h2>
+      <AboutMe />
+    </SectionContainer>
+
     <SectionContainer id="experience">
       <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
-        <BriefcaseIcon class="size-6" />
+        <BriefcaseIcon class="size-4 md:size-6" />
         Work Experience
       </h2>
       <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
+        <CodeIcon class="size-4 md:size-6" />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="skills">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
+        <LevelSignalIcon class="size-4 md:size-6" />
+        Skills
+      </h2>
+      <SkillsCard />
     </SectionContainer>
   </main>
 </Layout>

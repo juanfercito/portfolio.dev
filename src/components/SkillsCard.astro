@@ -1,0 +1,139 @@
+<section class="columm column--right px-10">
+  <article class="card">
+    <h2 class="card__title">Programming Languages</h2>
+    <small>Years of Experience</small>
+    <div class="skills__header">
+      <span class="skills__start-level">0</span>
+      <span class="skills__start-level">5</span>
+    </div>
+    <div class="skills">
+      <div class="skills__item">
+        <p class="skills__tech">HTML</p>
+        <div class="skills__bar skills__bar--80"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">CSS</p>
+        <div class="skills__bar skills__bar--80"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">Javascript</p>
+        <div class="skills__bar skills__bar--60"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">PHP</p>
+        <div class="skills__bar skills__bar--20"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">Python</p>
+        <div class="skills__bar skills__bar--60"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">Java</p>
+        <div class="skills__bar skills__bar--40"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">Kotlin</p>
+        <div class="skills__bar skills__bar--40"></div>
+      </div>
+      <div class="skills__item">
+        <p class="skills__tech">C#</p>
+        <div class="skills__bar skills__bar--20"></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  :root {
+    --primary-color: #549;
+    --background: #035;
+    --border-radius: 4px;
+    --transition: color 0.1s, background-color: 0.2s ease-in-out;
+    --skills-bar-length: 0%;
+  }
+
+  .column {
+    display: grid;
+    gap: 0.5em;
+    padding: 2em;
+  }
+
+  .skills {
+    padding: 1em 0;
+  }
+
+  .card small {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .skills__header {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin-left: auto;
+  }
+
+  .skills__tech {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  .skills__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8em;
+  }
+
+  .skills__bar,
+  .skills__bar::after {
+    position: relative;
+    width: 250px;
+    height: 12px;
+    background: var(--background);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .skills__bar::after {
+    content: "";
+    position: absolute;
+    left: -250px;
+    background: var(--primary-color);
+    transition: var(--transition);
+    animation: skills-bar-fill 2s ease-in-out forwards;
+  }
+
+  @media screen and (min-width: 730px) {
+    main {
+      grid-template-columns: min-content 1fr;
+    }
+  }
+
+  @media screen and (min-width: 730px) {
+    .column--right {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, min-content);
+    }
+  }
+
+  .skills__bar--20::after {
+    --skills-bar-length: 20%;
+  }
+  .skills__bar--40::after {
+    --skills-bar-length: 40%;
+  }
+  .skills__bar--60::after {
+    --skills-bar-length: 60%;
+  }
+  .skills__bar--80::after {
+    --skills-bar-length: 80%;
+  }
+
+  @keyframes skills-bar-fill {
+    to {
+      transform: translateX(var(--skills-bar-length));
+    }
+  }
+</style>

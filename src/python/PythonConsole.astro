@@ -1,0 +1,52 @@
+<>
+  <div class="python-console">
+    <textarea id="python-code" rows="10" cols="50"></textarea>
+    <button @click="runPythonCode">Run</button>
+    <div id="python-output"></div>
+  </div>
+  <script src="https://unpkg.com/@pyscript/runtime/umd/pyscript.min.js"
+  ></script>
+</>
+
+<script>
+  export function runPythonCode() {
+    try {
+      // Fetch the Python code from GitHub
+      fetch(
+        "https://raw.githubusercontent.com//juanfercito/simulando-una-base-de-datos/main/dict-with-json.py"
+      )
+        .then((response) => response.text())
+        .then((pythonScript) => {
+          const pythonCodeTextarea = document.getElementById(
+            "python-code"
+          ) as HTMLTextAreaElement;
+          const pythonCode = pythonCodeTextarea.value;
+
+          // Execute the Python code
+          (window as any).pyodide.runPython(pythonScript);
+        })
+        .catch((error) => {
+          console.error("Error fetching Python code:", error);
+        });
+    } catch (error) {
+      console.error("Error executing Python code:", error);
+    }
+  }
+</script>
+
+<style>
+  .python-console {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+</style>

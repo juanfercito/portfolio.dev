@@ -1,0 +1,129 @@
+---
+import Python from "../icons/Python.astro";
+import Json from "../icons/Json.astro";
+import DjangoRF from "../icons/DjangoRF.astro";
+import Django from "../icons/Django.astro";
+import PostgreSQL from "../icons/PostgreSQL.astro";
+import LinkInline from "../components/LinkInine.astro";
+
+const TAGS = {
+  PYTHON: {
+    name: "Python",
+    class: "bg-black text-white",
+    icon: Python,
+  },
+  JSON: {
+    name: "Json",
+    class: "bg-#444 text-white",
+    icon: Json,
+  },
+  DJANGO: {
+    name: "Django",
+    class: "bg-#444 text-white",
+    icon: Django,
+  },
+  RESTFRAMEWORK: {
+    name: "Django RF",
+    class: "bg-grey text-white",
+    icon: DjangoRF,
+  },
+  POSTGRES: {
+    name: "PostrgreSQL",
+    class: "bg-#444 text-white",
+    icon: PostgreSQL,
+  },
+};
+const PROJECTS = [
+  {
+    title: "Using API REST",
+    description:
+      "This basic exercise shows the creation of a REST API using Django and the Django Rest Framework and connecting it to a PostgreSQL type database. Fully functional to test connections with the frontend..",
+    link: "https://api-userlist-django-df.onrender.com/api/usuarios",
+    github: "/",
+    image: "/src/python/PythonConsole.astro",
+    application: "Watch Repo",
+    tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.RESTFRAMEWORK, TAGS.POSTGRES],
+  },
+
+  {
+    title: "Simulating a Database",
+    description:
+      "This exercise simulates the entry of data into a database using a JSON file as data storage. It is very useful to understand the connection between the program code and the resource that we will use as a database, if anyone finds it practical for student use , feel free to practice with it.",
+    link: "https://github.com/juanfercito/simulando-una-base-de-datos/tree/main",
+    github: "/",
+    image: "/src/python/PythonConsole.astro",
+    tags: [TAGS.PYTHON, TAGS.JSON],
+  },
+];
+---
+
+<div
+  class="relative mx-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
+>
+  <div class="relative md:col-span-5">
+    <div class="sticky top-0">
+      <span class="text-blue-300/90 -left-[42px] absolute rounded-full text-5xl"
+        >&bull;</span
+      >
+    </div>
+    <div
+      class="relative flex flex-col gap-2 pb-4 text-gray-300 dark:text-gray-400 md:col-span-4"
+    >
+      {
+        PROJECTS.map(({ title, description, tags, link, application }) => (
+          <article>
+            <div>
+              <h3 class="pt-6 text-2xl font-semibold text-blue-300/90 mb-6">
+                {title}
+              </h3>
+              <p class="mb-4 text-gray-300/90 relative flex flex-col gap-2 pb-4 text-gray-400 dark:text-gray-300 md:col-span-5">
+                {description}
+              </p>
+              <p class="pb-8 px-4 font-semibold text-blue-300 dark:text-blue-200 dark:hover:text-blue-300 hover:text-blue-700">
+                <a href="https://github.com/juanfercito/userlist_project">
+                  {application}
+                </a>
+              </p>
+              <div>
+                <p class="font-semibold py-2 px-4">Used Technologies:</p>
+                <div class="flex relative items-center justify-start">
+                  {tags.map((tag) => (
+                    <div class="grid items-center justify-center px-3 md:px-10">
+                      <tag.icon class="flex relative size-8 w-16 md:size-10 md:w-16" />
+                      {tag.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="flex relative px-4 py-8 mb-16 text-2xl font-semibold text-blue-300 dark:text-blue-200 dark:hover:text-blue-300 hover:text-blue-700">
+                {tags.some((tag) => tag.name === "Python") && (
+                  <LinkInline href={link}>
+                    Go To{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-5 icon icon-tabler icon-tabler-chevron-right"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 6l6 6l-6 6" />
+                      </>
+                    </svg>
+                  </LinkInline>
+                )}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</div>
