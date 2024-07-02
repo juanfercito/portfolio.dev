@@ -4,7 +4,10 @@ import Json from "../icons/Json.astro";
 import DjangoRF from "../icons/DjangoRF.astro";
 import Django from "../icons/Django.astro";
 import PostgreSQL from "../icons/PostgreSQL.astro";
+import Bootstrap from "../icons/Bootstrap.astro";
 import LinkInline from "../components/LinkInine.astro";
+import Laravel from "../icons/Laravel.astro";
+import Php from "../icons/Php.astro";
 
 const TAGS = {
   PYTHON: {
@@ -32,13 +35,38 @@ const TAGS = {
     class: "bg-#444 text-white",
     icon: PostgreSQL,
   },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-#444 text-white",
+    icon: Bootstrap,
+  },
+  PHP: {
+    name: "PHP",
+    class: "bg-#444 text-white",
+    icon: Php,
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class: "bg-#444 text-white",
+    icon: Laravel,
+  },
 };
 const PROJECTS = [
+  {
+    title: "Complete WEBSITE with LARAVEL",
+    description:
+      "This is a complete website made with PHP and Laravel 11 as the core, it also uses HTML, CSS and BOOTSTRAP for increasing it performance and flexibility. This website simulates a basic e-commerce and provides a SHOPPING CART;it also contains a LOGIN and REGISTRATION system that manage the authenticated users. It allows to change the PROFILE FEATURES for each logged user, a ROLE SYSTEM for controlling the usage of the platform, and more.",
+    link: "https://github.com/juanfercito/website-with-Laravel/tree/main",
+    github: "/",
+    image: "/src/python/PythonConsole.astro",
+    tags: [TAGS.PHP, TAGS.LARAVEL, TAGS.BOOTSTRAP],
+  },
+
   {
     title: "Using API REST",
     description:
       "This basic exercise shows the creation of a REST API using Django and the Django Rest Framework and connecting it to a PostgreSQL type database. Fully functional to test connections with the frontend..",
-    link: "https://api-userlist-django-df.onrender.com/api/usuarios",
+    link: "https://github.com/juanfercito/userlist_project",
     github: "/",
     image: "/src/python/PythonConsole.astro",
     application: "Watch Repo",
@@ -97,7 +125,9 @@ const PROJECTS = [
               </div>
 
               <div class="flex relative px-4 py-8 mb-16 text-2xl font-semibold text-blue-300 dark:text-blue-200 dark:hover:text-blue-300 hover:text-blue-700">
-                {tags.some((tag) => tag.name === "Python") && (
+                {tags.some(
+                  (tag) => tag.name === "Python" || tag.name === "PHP"
+                ) && (
                   <LinkInline href={link}>
                     Go To{" "}
                     <svg
